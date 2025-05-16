@@ -46,15 +46,6 @@ if name and subject:
         st.balloons()
         st.write("학습 준비가 완료되었습니다!")
 
-st.header("AI에게 질문하기")
-question = st.text_area("질문을 입력하세요")
-
-if question and st.button("답변 받기"):
-    with st.spinner("AI가 답변을 생성 중입니다..."):
-        answer = get_ai_response(f"{subject}에 관한 다음 질문에 답해주세요: {question}")
-        st.write("💡 AI 답변:")
-        st.write(answer)
-
 # AI 답변 생성
 if st.button("생성하기"):
     if user_input:
@@ -70,3 +61,12 @@ if st.button("생성하기"):
             answer = get_ai_response(prompt)
             st.write("💡 AI 답변:")
             st.markdown(answer)
+
+st.header("AI에게 질문하기")
+question = st.text_area("질문을 입력하세요")
+
+if question and st.button("답변 받기"):
+    with st.spinner("AI가 답변을 생성 중입니다..."):
+        answer = get_ai_response(f"{subject}에 관한 다음 질문에 답해주세요: {question}")
+        st.write("💡 AI 답변:")
+        st.write(answer)
